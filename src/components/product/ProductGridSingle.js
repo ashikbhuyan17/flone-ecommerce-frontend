@@ -30,24 +30,26 @@ const ProductGridSingle = ({
   return (
     <Fragment>
       <div
-        className={`col-xl-3 col-md-6 col-lg-4 col-sm-6 ${
-          sliderClassName ? sliderClassName : ""
-        }`}
+        className={`col-xl-3 col-md-6 col-lg-4 col-sm-6 ${sliderClassName ? sliderClassName : ""
+          }`}
       >
         <div
           className={`product-wrap ${spaceBottomClass ? spaceBottomClass : ""}`}
         >
           <div className="product-img">
-            <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
+            <Link to={process.env.PUBLIC_URL + "/product/" + product._id}>
               <img
                 className="default-img"
-                src={process.env.PUBLIC_URL + product.image[0]}
+                // src={process.env.PUBLIC_URL + product.image[0]}
+                src={`http://localhost:5000/public/${product.image[0].img}`}
                 alt=""
               />
-              {product.image.length > 1 ? (
+              {product.productPicture.length > 1 ? (
                 <img
                   className="hover-img"
-                  src={process.env.PUBLIC_URL + product.image[1]}
+                  // src={process.env.PUBLIC_URL + product.image[1]}
+                  src={`http://localhost:5000/public/${product.image[1].img}`}
+
                   alt=""
                 />
               ) : (
@@ -93,7 +95,7 @@ const ProductGridSingle = ({
                     Buy now{" "}
                   </a>
                 ) : product.variation && product.variation.length >= 1 ? (
-                  <Link to={`${process.env.PUBLIC_URL}/product/${product.id}`}>
+                  <Link to={`${process.env.PUBLIC_URL}/product/${product._id}`}>
                     Select Option
                   </Link>
                 ) : product.stock && product.stock > 0 ? (

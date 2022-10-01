@@ -22,8 +22,10 @@ const ProductDescriptionInfo = ({
   addToWishlist,
   addToCompare
 }) => {
+  console.log(product)
+
   const [selectedProductColor, setSelectedProductColor] = useState(
-    product.variation ? product.variation[0].color : ""
+    product?.variation ? product?.variation[0]?.color : ""
   );
   const [selectedProductSize, setSelectedProductSize] = useState(
     product.variation ? product.variation[0].size[0].name : ""
@@ -230,7 +232,9 @@ const ProductDescriptionInfo = ({
           </div>
         </div>
       )}
-      {product.category ? (
+
+
+      {/* {product.category ? (
         <div className="pro-details-meta">
           <span>Categories :</span>
           <ul>
@@ -247,7 +251,7 @@ const ProductDescriptionInfo = ({
         </div>
       ) : (
         ""
-      )}
+      )} */}
       {product.tag ? (
         <div className="pro-details-meta">
           <span>Tags :</span>

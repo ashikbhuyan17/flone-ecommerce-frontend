@@ -18,25 +18,25 @@ const ProductImageDescription = ({
   wishlistItems,
   compareItems
 }) => {
+  console.log("galleryType", galleryType);
   const wishlistItem = wishlistItems.filter(
-    wishlistItem => wishlistItem.id === product.id
+    wishlistItem => wishlistItem.id === product?._id
   )[0];
   const compareItem = compareItems.filter(
-    compareItem => compareItem.id === product.id
+    compareItem => compareItem.id === product?._id
   )[0];
   const { addToast } = useToasts();
 
-  const discountedPrice = getDiscountPrice(product.price, product.discount);
-  const finalProductPrice = +(product.price * currency.currencyRate).toFixed(2);
+  const discountedPrice = getDiscountPrice(product?.price, product?.discount);
+  const finalProductPrice = +(product?.price * currency.currencyRate).toFixed(2);
   const finalDiscountedPrice = +(
     discountedPrice * currency.currencyRate
   ).toFixed(2);
 
   return (
     <div
-      className={`shop-area ${spaceTopClass ? spaceTopClass : ""} ${
-        spaceBottomClass ? spaceBottomClass : ""
-      }`}
+      className={`shop-area ${spaceTopClass ? spaceTopClass : ""} ${spaceBottomClass ? spaceBottomClass : ""
+        }`}
     >
       <div className="container">
         <div className="row">

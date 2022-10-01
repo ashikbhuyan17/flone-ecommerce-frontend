@@ -27,6 +27,7 @@ const Wishlist = ({
   const { addToast } = useToasts();
   const { pathname } = location;
 
+  console.log("http://localhost:5000/public", wishlistItems.map(image => console.log(".......", image)));
   return (
     <Fragment>
       <MetaTags>
@@ -90,8 +91,7 @@ const Wishlist = ({
                                   >
                                     <img
                                       className="img-fluid"
-                                      src={`http://localhost:5000/public/${wishlistItem.productPicture[0].img}`}
-
+                                      src={`http://localhost:5000/public/${wishlistItem.image[0].img}`}
                                       alt=""
                                     />
                                   </Link>

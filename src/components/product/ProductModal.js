@@ -8,7 +8,8 @@ import { connect } from "react-redux";
 
 function ProductModal(props) {
   const { product } = props;
-  console.log(".......................", product)
+  // console.log(".......................", product)
+  // console.log(".......................", props.cartitems)
   const { currency } = props;
   const { discountedprice } = props;
   const { finalproductprice } = props;
@@ -104,7 +105,7 @@ function ProductModal(props) {
                 <Swiper {...gallerySwiperParams}>
                   {product.productPicture &&
                     product.productPicture.map((single, key) => {
-                      console.log(single);
+                      // console.log(single);
                       return (
                         <div key={key}>
                           <div className="single-image">

@@ -121,15 +121,15 @@ const NotFound = lazy(() => import("./pages/other/NotFound"));
 const App = (props) => {
   const [products, setProducts] = useState([])
   useEffect(() => {
-    // props.dispatch(
-    //   loadLanguages({
-    //     languages: {
-    //       en: require("./translations/english.json"),
-    //       fn: require("./translations/french.json"),
-    //       de: require("./translations/germany.json")
-    //     }
-    //   })
-    // );
+    props.dispatch(
+      loadLanguages({
+        languages: {
+          en: require("./translations/english.json"),
+          fn: require("./translations/french.json"),
+          de: require("./translations/germany.json")
+        }
+      })
+    );
     fetch("http://localhost:5000/api/product")
       .then(res => res.json())
       .then(data => setProducts(data.product))

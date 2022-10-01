@@ -39,10 +39,10 @@ const ProductGridListSingle = ({
             <Link to={process.env.PUBLIC_URL + "/product/" + product._id}>
               <img
                 className="default-img"
-                src={`http://localhost:5000/public/${product.productPicture[0].img}`}
+                src={`http://localhost:5000/public/${product.image[0].img}`}
                 alt=""
               />
-              {product.productPicture.length > 1 ? (
+              {product.image.length > 1 ? (
                 <img
                   className="hover-img"
                   src={process.env.PUBLIC_URL + product.productPicture[1]}
@@ -91,8 +91,8 @@ const ProductGridListSingle = ({
                     Buy now{" "}
                   </a>
                 ) : product.variation && product.variation.length >= 1 ? (
-                  <Link to={`${process.env.PUBLIC_URL}/product/${product.id}`}>
-                    Select Option
+                  <Link to={`${process.env.PUBLIC_URL}/product/${product._id}`}>
+                    Select
                   </Link>
                 ) : product.stock && product.stock > 0 ? (
                   <button
@@ -162,10 +162,10 @@ const ProductGridListSingle = ({
                   <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
                     <img
                       className="default-img img-fluid"
-                      // src={process.env.PUBLIC_URL + product.image[0]}
+                      src={process.env.PUBLIC_URL + product.image[0].img}
                       alt=""
                     />
-                    {product.productPicture.length > 1 ? (
+                    {product.image.length > 1 ? (
                       <img
                         className="hover-img img-fluid"
                         src={process.env.PUBLIC_URL + product.productPicture[1]}
@@ -240,7 +240,7 @@ const ProductGridListSingle = ({
                       </a>
                     ) : product.variation && product.variation.length >= 1 ? (
                       <Link
-                        to={`${process.env.PUBLIC_URL}/product/${product.id}`}
+                        to={`${process.env.PUBLIC_URL}/product/${product._id}`}
                       >
                         Select Option
                       </Link>

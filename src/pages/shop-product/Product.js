@@ -11,6 +11,9 @@ import ProductImageDescription from "../../wrappers/product/ProductImageDescript
 
 const Product = ({ location, product }) => {
   const { pathname } = location;
+  console.log("product", product)
+  console.log("pathname", pathname)
+
 
   return (
     <Fragment>
@@ -41,15 +44,14 @@ const Product = ({ location, product }) => {
         {/* product description tab */}
         <ProductDescriptionTab
           spaceBottomClass="pb-90"
-          // productFullDesc={product.fullDescription}
-          productFullDesc={product.fullDescription}
+          productFullDesc={product?.fullDescription}
         />
 
         {/* related product slider */}
-        <RelatedProductSlider
+        {/* <RelatedProductSlider
           spaceBottomClass="pb-95"
           category={product.category[0]}
-        />
+        /> */}
       </LayoutOne>
     </Fragment>
   );
@@ -64,7 +66,7 @@ const mapStateToProps = (state, ownProps) => {
   const itemId = ownProps.match.params.id;
   return {
     product: state.productData.products.filter(
-      single => single.id === itemId
+      single => single._id === itemId
     )[0]
   };
 };
